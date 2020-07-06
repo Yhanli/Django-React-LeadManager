@@ -25,7 +25,7 @@ SECRET_KEY = '1_d_%-y&=jg7tw#7^xdrw6w*67st&pi1s_90=k7&iiohiq0t9$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['yhanl.tech']
 
 
 # Application definition
