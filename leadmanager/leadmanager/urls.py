@@ -24,5 +24,5 @@ urlpatterns = [
     path('', include('frontend.urls')),
     path('', include('leads.urls')),
     path('', include('accounts.urls')),
-    re_path(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}),
-]
+    # re_path(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
