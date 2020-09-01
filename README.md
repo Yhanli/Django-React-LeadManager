@@ -7,4 +7,4 @@ which logged in user will only see leads under their account and not other users
 
 
 
-checkout http://13.239.97.191/ to see demo, register with any email is fine, no verify steps implements. 
+checkout http://13.239.97.191/ to see demo, register with any email is fine, no verify steps implemented. 
