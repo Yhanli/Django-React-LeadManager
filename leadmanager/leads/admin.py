@@ -8,10 +8,14 @@ admin.site.site_title = "Game Admin Portal"
 admin.site.index_title = "Welcome"
 
 
-class PageAdmin(admin.ModelAdmin):
-    inlines = []
+class SubscribedGamePageAdmin(admin.ModelAdmin):
+    list_display = ['owner', 'subGames']
 
 
-admin.site.register(Lead)
-admin.site.register(Game)
-admin.site.register(SubscribedGame)
+class GamePageAdmin(admin.ModelAdmin):
+    list_display = ['name', 'active', 'official_site']
+
+
+# admin.site.register(Lead)
+admin.site.register(Game, GamePageAdmin)
+admin.site.register(SubscribedGame, SubscribedGamePageAdmin)
