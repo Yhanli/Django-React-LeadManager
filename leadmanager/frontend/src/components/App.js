@@ -18,6 +18,8 @@ import {Provider} from 'react-redux';
 import store from '../store';
 import {loadUser} from "../actions/auth";
 
+import favicon from './favicon.png';
+
 // Alert Options
 const alertOptions = {
     timeout: 3000,
@@ -35,6 +37,9 @@ class App extends Component {
                 <AlertProvider template={AlertTemplate} {...alertOptions}>
                     <Router>
                         <Fragment>
+                            <script>
+                            {document.getElementById("favicon").href = favicon}
+                            </script>
                             <Header />
                             <Alerts />
                             <div className = "container" >

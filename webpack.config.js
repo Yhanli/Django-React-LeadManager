@@ -1,6 +1,12 @@
 var path = require("path");
 const cssRegex = /\.(css|scss)$/;
 module.exports = {
+    // plugins: [
+    //     new CopyWebpackPlugin({
+    //         patterns: [
+    //             // relative path is from src
+    //             { from: './favicon.ico' }, // <- your path to favicon
+    //         ],})],
     output: {
         path: path.resolve(__dirname, "build"),
         filename: "main.js",

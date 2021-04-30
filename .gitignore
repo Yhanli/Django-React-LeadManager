@@ -261,8 +261,8 @@ dist
 .vscode-test
 
 # End of https://www.toptal.com/developers/gitignore/api/node
-/leadmanager/frontend/static_root/
 /leadmanager/media_root/*
 /leadmanager/frontend/static/
 /leadmanager/frontend/migrations/
 /leadmanager/leadmanager/parameter.py
+/leadmanager/frontend/static_root/frontend/main.js
