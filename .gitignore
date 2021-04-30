@@ -262,7 +262,7 @@ dist
 
 # End of https://www.toptal.com/developers/gitignore/api/node
 /leadmanager/media_root/*
-/leadmanager/frontend/static/
+#/leadmanager/frontend/static/
 /leadmanager/frontend/migrations/
 /leadmanager/leadmanager/parameter.py
 /leadmanager/frontend/static_root/frontend/main.js
