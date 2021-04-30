@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack --mode development --watch ./leadmanager/frontend/src/index.js --output ./leadmanager/frontend/static/frontend/main.js",
+    "dev": "webpack --mode development --watch ./leadmanager/frontend/src/index.js --output ./leadmanager/frontend/static_root/frontend/main.js",
     "build": "webpack --mode production ./leadmanager/frontend/src/index.js --output ./leadmanager/frontend/static/frontend/main.js"
   },
   "repository": {
@@ -24,21 +24,32 @@
     "@babel/preset-react": "^7.10.4",
     "babel-loader": "^8.1.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
-    "webpack": "^4.43.0",
+    "babel-polyfill": "^6.26.0",
+    "css-loader": "^3.6.0",
+    "sass": "^1.26.10",
+    "sass-loader": "^10.0.2",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
     "axios": "^0.19.2",
+    "file-loader": "^6.1.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
-    "react-alert": "^7.0.1",
+    "react-alert": "^7.0.2",
     "react-alert-template-basic": "^1.0.0",
     "react-dom": "^16.13.1",
+    "react-horizontal-timeline": "^1.5.3",
+    "react-lazyload": "^3.1.0",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.2.0",
+    "react-slideshow-image": "^3.3.0",
     "react-transition-group": "^4.4.1",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "smoothscroll-polyfill": "^0.4.4",
+    "styled-components": "^5.2.0"
   }
 }

@@ -25,7 +25,11 @@ class Header extends Component {
                 <li className="nav-item">
                     <button
                         onClick={this.props.logout}
-                        className="nav-link btn btn-primary btn-sm text-light">Logout</button>
+                        className="nav-link btn btn-primary btn-sm text-light"
+                        style={{
+                            borderRadius:'10px'
+                        }}
+                    >Logout</button>
                 </li>
             </ul>
         );
@@ -48,7 +52,7 @@ class Header extends Component {
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-                        <a className="navbar-brand" href="#">Lead Manager</a>
+                        <a className="navbar-brand" href="#">Subscription Manager</a>
                         {isAuthenticated ? authLinks : guestLinks}
                     </div>
                 </div>

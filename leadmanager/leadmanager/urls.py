@@ -20,9 +20,9 @@ from django.conf.urls.static import static, serve
 from django.conf.urls import url, re_path
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('frontend.urls')),
-    path('', include('leads.urls')),
-    path('', include('accounts.urls')),
-    # re_path(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+                  path('admin/', admin.site.urls),
+                  path('', include('frontend.urls')),
+                  path('', include('leads.urls')),
+                  path('', include('accounts.urls')),
+                  re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
+              ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

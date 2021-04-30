@@ -1,0 +1,48 @@
+*{
+  box-sizing: border-box;
+}
+
+
+.gameTable {
+  //table-layout: fixed;
+  width: 100%;
+
+  .headerRow{
+    text-align: center;
+  }
+
+  .gameRow {
+    background-color: rgba(229, 229, 229, 0.1);
+    box-shadow: 0 5px 10px -5px grey;
+    border-radius: 10px;
+    border-top: 1rem solid transparent;
+
+    .gameLogo {
+      width: 80px;
+      padding: 10px;
+      .gameImg {
+        max-width: 70px;
+        border-radius: 10px;
+      }
+    }
+
+    .gameDescription {
+      vertical-align: text-top;
+      word-wrap: normal;
+      padding-top: 1rem;
+    }
+    .subCheckBox{
+      text-align: center;
+    }
+  }
+}
+
+input[type='checkbox'] {
+  width:30px;
+  height:30px;
+  //border-radius:15px;
+  //border:2px solid #555;
+}
+//input[type='checkbox']:checked {
+//  //background: #abd;
+//}

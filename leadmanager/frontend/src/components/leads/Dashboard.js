@@ -5,7 +5,7 @@ import Leads from "./Leads";
 function Dashboard(props) {
     return (
         <Fragment>
-            <Form />
+            {/*<Form />*/}
             <Leads />
         </Fragment>
     );

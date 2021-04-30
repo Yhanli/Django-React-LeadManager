@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
+from leads.models import *
 
 
 # User Serializer
@@ -23,13 +24,15 @@ class RegisterSerializer(serializers.ModelSerializer):
             validated_data['email'],
             validated_data['password'],
         )
+        sub_games = SubscribedGame.objects.create(owner=user)
         return user
+
 
 # Login Serializer
 class LoginSerializer(serializers.Serializer):
     username = serializers.CharField()
     password = serializers.CharField()
-    
+
     def validate(self, data):
         user = authenticate(**data)
         if user and user.is_active:

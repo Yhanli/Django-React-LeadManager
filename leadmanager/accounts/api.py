@@ -31,6 +31,7 @@ class LoginAPI(generics.GenericAPIView):
             "token": AuthToken.objects.create(user)[1]
         })
 
+
 # Get User API
 class UserAPI(generics.RetrieveAPIView):
     permission_classes = [
@@ -40,4 +41,3 @@ class UserAPI(generics.RetrieveAPIView):
 
     def get_object(self):
         return self.request.user
-
