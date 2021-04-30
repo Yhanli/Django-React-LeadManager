@@ -265,3 +265,4 @@ dist
 /leadmanager/media_root/*
 /leadmanager/frontend/static/
 /leadmanager/frontend/migrations/
+/leadmanager/leadmanager/parameter.py

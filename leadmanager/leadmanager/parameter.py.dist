@@ -1,0 +1,4 @@
+class ENV:
+    DJANGO_SECRET_KEY = ""  # generate your own key
+    DEBUG = True
+    ALLOWED_HOSTS = ['*']
