@@ -47,6 +47,7 @@ class Register extends Component {
             <div className="col-md-6 m-auto">
                 <div className="card card-body mt-5">
                     <h2 className="text-center">Register</h2>
+                    <p className="text-center">The email will be used to receive subscribed game updates.</p>
                     <form onSubmit={this.onSubmit}>
                         <div className="form-group">
                             <label>Username</label>
@@ -54,6 +55,7 @@ class Register extends Component {
                                 type="text"
                                 className="form-control"
                                 name="username"
+                                placeholder="Your unique user name"
                                 onChange={this.onChange}
                                 value={username}
                             />
@@ -64,6 +66,7 @@ class Register extends Component {
                                 type="email"
                                 className="form-control"
                                 name="email"
+                                placeholder="Email to receive game notification"
                                 onChange={this.onChange}
                                 value={email}
                             />
@@ -74,6 +77,7 @@ class Register extends Component {
                                 type="password"
                                 className="form-control"
                                 name="password"
+                                placeholder="Any length and style password you like, no restrictions applied."
                                 onChange={this.onChange}
                                 value={password}
                             />
@@ -84,6 +88,7 @@ class Register extends Component {
                                 type="password"
                                 className="form-control"
                                 name="password2"
+                                placeholder="Confirm password entered above"
                                 onChange={this.onChange}
                                 value={password2}
                             />

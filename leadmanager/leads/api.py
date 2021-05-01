@@ -11,7 +11,6 @@ class LeadViewSet(viewsets.ModelViewSet):
     ]
     serializer_class = LeadSerializer
 
-
     def get_queryset(self):
         return self.request.user.leads.all()
 
@@ -19,7 +18,7 @@ class LeadViewSet(viewsets.ModelViewSet):
         game_id = int(request.body)
         game_subed_id = request.user.sub_games.id
         subGames = SubscribedGame.objects.get(id=game_subed_id)
-        game_subed = [int(i) for i in (subGames.subGames.replace('*',"").split('|'))[:-1]]
+        game_subed = [int(i) for i in (subGames.subGames.replace('*', "").split('|'))[:-1]]
         game_subed.append(game_id)
         game_subed.sort()
         string = ''
@@ -48,9 +47,9 @@ class LeadViewSet(viewsets.ModelViewSet):
 
 
 class GameViewSet(viewsets.ModelViewSet):
-    # permission_classes = [
-    #     permissions.IsAuthenticated
-    # ]
+    permission_classes = [
+        permissions.IsAuthenticated
+    ]
     serializer_class = GameSerializer
 
     def list(self, request):
@@ -64,9 +63,9 @@ class GameViewSet(viewsets.ModelViewSet):
 
 
 class SubGameViewSet(viewsets.ModelViewSet):
-    # permission_classes = [
-    #     permissions.IsAuthenticated
-    # ]
+    permission_classes = [
+        permissions.IsAuthenticated
+    ]
     serializer_class = SubGameSerializer
 
     def list(self, request, *args, **kwargs):

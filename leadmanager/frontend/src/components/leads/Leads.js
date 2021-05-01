@@ -57,7 +57,7 @@ class Leads extends Component {
     render() {
         return (
             <Fragment>
-                <h2> Games to Subscribe </h2>
+                <h2> Click to Subscribe </h2>
                 <table className={`gameTable`}>
                     <thead>
                     <tr className={'headerRow'}>
