@@ -34,6 +34,7 @@ class Login extends Component {
             <div className="col-md-6 m-auto">
                 <div className="card card-body mt-5">
                     <h2 className="text-center">Login</h2>
+                    <p>It's a page for people who are interest to get update for interested websites/apps</p>
                     <form onSubmit={this.onSubmit}>
                         <div className="form-group">
                             <label>Username</label>
