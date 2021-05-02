@@ -47,7 +47,7 @@ class Register extends Component {
             <div className="col-md-6 m-auto">
                 <div className="card card-body mt-5">
                     <h2 className="text-center">Register</h2>
-                    <p className="text-center">The email will be used to receive subscribed game updates.</p>
+                    <p className="text-center">The email will be used to receive subscribed game updates only.</p>
                     <form onSubmit={this.onSubmit}>
                         <div className="form-group">
                             <label>Username</label>
