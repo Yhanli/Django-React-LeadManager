@@ -1,0 +1,36 @@
+$navFooterHoverColor: rgba(166, 225, 250, 0.92);
+.footer {
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  width: 100vw;
+  z-index: 2;
+  background-color: rgba(108, 108, 108, 0.1);
+  margin: auto;
+
+  .footer-container{
+    width: 100%;
+    max-width: 1500px;
+    background-color: rgba(96, 56, 218, 0.14);
+    margin: auto;
+    .footer-max{
+      margin: auto;
+      width: max-content;
+      float: right;
+      padding: 0 2rem;
+
+    }
+  }
+  a {
+    float: left;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 10px 10px;
+    text-decoration: none;
+    font-size: 1rem;
+    &:hover {
+      background-color: $navFooterHoverColor;
+      color: rgba(0, 0, 0, 1);
+    }
+  }
+}

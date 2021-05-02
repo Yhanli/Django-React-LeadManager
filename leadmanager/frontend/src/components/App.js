@@ -6,6 +6,7 @@ import { Provider as AlertProvider} from 'react-alert';
 import AlertTemplate from "react-alert-template-basic";
 
 import Header from './layout/Header';
+import Footer from './layout/Footer';
 import Dashboard from "./leads/Dashboard"
 import Alerts from './layout/Alerts';
 
@@ -49,6 +50,7 @@ class App extends Component {
                                     <Route exact path="/login" component={Login} />
                                 </Switch>
                             </div>
+                            <Footer/>
                         </Fragment>
                     </Router>
                 </AlertProvider>
