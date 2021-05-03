@@ -32,7 +32,7 @@ class Leads extends Component {
             setTimeout(() => {
                 if (this.props.sub_games.id !== undefined && !this.state.changedSubGame){
                     this.checkSubGames(this.props.sub_games.subGames);
-                    if (i > 15){
+                    if (i > 7){
                         this.setState({'changedSubGame':true});
                     }
                 }
