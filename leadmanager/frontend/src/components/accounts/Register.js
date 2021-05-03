@@ -21,12 +21,14 @@ class Register extends Component {
 
     onSubmit = e => {
         e.preventDefault();
+        this.setState({'username': this.state.username.toLowerCase()});
         const {username, email, password, password2} = this.state;
+        const username_lower = username.toLowerCase();
         if (password !== password2){
             this.props.createMessage({passwordsNotMatch: "Passwords did not match"})
         }else{
             const newUser = {
-                username,
+                'username':username_lower,
                 email,
                 password
             };
@@ -34,9 +36,11 @@ class Register extends Component {
         }
     };
 
-    onChange = e => this.setState({[
-        e.target.name]: e.target.value
-    });
+    onChange = e => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    };
 
     render() {
         if (this.props.isAuthenticated){
