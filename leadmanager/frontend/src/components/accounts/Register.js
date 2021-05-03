@@ -22,11 +22,12 @@ class Register extends Component {
     onSubmit = e => {
         e.preventDefault();
         const {username, email, password, password2} = this.state;
+        const username_lower = username.toLowerCase();
         if (password !== password2){
             this.props.createMessage({passwordsNotMatch: "Passwords did not match"})
         }else{
             const newUser = {
-                username,
+                username_lower,
                 email,
                 password
             };
