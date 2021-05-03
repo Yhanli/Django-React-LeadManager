@@ -27,16 +27,14 @@ class Leads extends Component {
     componentDidMount() {
         this.props.getLeads();
         this.props.getSubGames();
-        // setTimeout(() => {
-        //     this.checkSubGames(this.props.sub_games.subGames)
-        // }, 500)
-        //
 
         for (let i=0; i<10; i++){
             setTimeout(() => {
                 if (this.props.sub_games.id !== undefined && !this.state.changedSubGame){
                     this.checkSubGames(this.props.sub_games.subGames);
-                    this.setState({'changedSubGame':true});
+                    if (i > 3){
+                        this.setState({'changedSubGame':true});
+                    }
                 }
             }, 500 * i);
 
