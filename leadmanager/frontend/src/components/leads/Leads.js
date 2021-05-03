@@ -28,15 +28,15 @@ class Leads extends Component {
         this.props.getLeads();
         this.props.getSubGames();
 
-        for (let i=0; i<10; i++){
+        for (let i=0; i<50; i++){
             setTimeout(() => {
                 if (this.props.sub_games.id !== undefined && !this.state.changedSubGame){
                     this.checkSubGames(this.props.sub_games.subGames);
-                    if (i > 3){
+                    if (i > 15){
                         this.setState({'changedSubGame':true});
                     }
                 }
-            }, 500 * i);
+            }, 100 * i);
 
         }
 
