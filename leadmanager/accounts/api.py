@@ -48,7 +48,6 @@ class UserAPI(generics.RetrieveAPIView):
         return self.request.user
 
     def post(self, request, *args, **kwargs):
-        print(request.data)
         user = User.objects.get(username=request.data["username"])
         user.email = request.data["email"].strip()
         user.save()

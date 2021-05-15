@@ -5,7 +5,7 @@ $navFooterHoverColor: rgba(166, 225, 250, 0.92);
   position: fixed;
   width: 100vw;
   z-index: 2;
-  background-color: rgba(205, 205, 205, 0.15);
+  background-color: rgb(243, 243, 243);
   margin: auto;
 
   .footer-container{
@@ -40,5 +40,8 @@ $navFooterHoverColor: rgba(166, 225, 250, 0.92);
   }
 
 }
-
+.navbg{
+  background-color: rgb(243, 243, 243) !important;
+  z-index: 1;
+}
 

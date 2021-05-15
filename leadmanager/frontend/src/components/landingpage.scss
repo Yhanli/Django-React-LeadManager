@@ -21,9 +21,9 @@
       margin-bottom: 6rem;
 
       .landingTitle {
-        height: 100px;
+        height: auto;
         .hoverTitle {
-          transition: all 0.15s ease-in-out;
+          transition: all 0.35s ease-in-out;
 
           &:hover {
             font-weight: bold;

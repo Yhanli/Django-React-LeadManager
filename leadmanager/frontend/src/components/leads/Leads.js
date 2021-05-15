@@ -7,7 +7,7 @@ import {updateEmail} from "../../actions/auth";
 import "./games.scss";
 
 
-const WAIT_INTERVAL = 1200;
+const WAIT_INTERVAL = 1000;
 const ENTER_KEY = 13;
 
 class Leads extends Component {
