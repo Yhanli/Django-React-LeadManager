@@ -2,7 +2,7 @@ $navFooterHoverColor: rgba(166, 225, 250, 0.92);
 .footer {
   left: 0;
   bottom: 0;
-  position: absolute;
+  position: fixed;
   width: 100vw;
   z-index: 2;
   background-color: rgba(205, 205, 205, 0.15);
@@ -34,3 +34,11 @@ $navFooterHoverColor: rgba(166, 225, 250, 0.92);
     }
   }
 }
+.form-group {
+  .roundButton {
+    border-radius: 10px;
+  }
+
+}
+
+

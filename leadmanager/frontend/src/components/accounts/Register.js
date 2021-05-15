@@ -4,7 +4,8 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {createMessage} from "../../actions/messages";
 
-import {login, register} from '../../actions/auth'
+import {login, register} from '../../actions/auth';
+import './../layout/layout.scss';
 
 class Register extends Component {
     state = {
@@ -44,14 +45,14 @@ class Register extends Component {
 
     render() {
         if (this.props.isAuthenticated){
-            return <Redirect to="/" />;
+            return <Redirect to="/dashboard" />;
         }
         const {username, email, password, password2} = this.state;
         return (
             <div className="col-md-6 m-auto">
                 <div className="card card-body mt-5">
                     <h2 className="text-center">Register</h2>
-                    <p className="text-center">The email will be used to receive subscribed game updates only.</p>
+                    {/*<p className="text-center">The email will be used to receive subscribed game updates only.</p>*/}
                     <form onSubmit={this.onSubmit}>
                         <div className="form-group">
                             <label>Username</label>
@@ -64,17 +65,17 @@ class Register extends Component {
                                 value={username}
                             />
                         </div>
-                        <div className="form-group">
-                            <label>Email</label>
-                            <input
-                                type="email"
-                                className="form-control"
-                                name="email"
-                                placeholder="Email to receive game notification"
-                                onChange={this.onChange}
-                                value={email}
-                            />
-                        </div>
+                        {/*<div className="form-group">*/}
+                        {/*    <label>Email</label>*/}
+                        {/*    <input*/}
+                        {/*        type="email"*/}
+                        {/*        className="form-control"*/}
+                        {/*        name="email"*/}
+                        {/*        placeholder="Email to receive game notification"*/}
+                        {/*        onChange={this.onChange}*/}
+                        {/*        value={email}*/}
+                        {/*    />*/}
+                        {/*</div>*/}
                         <div className="form-group">
                             <label>Password</label>
                             <input
@@ -98,7 +99,7 @@ class Register extends Component {
                             />
                         </div>
                         <div className="form-group">
-                            <button type="submit" className="btn btn-primary">
+                            <button type="submit" className="btn btn-primary roundButton">
                                 Register
                             </button>
                         </div>

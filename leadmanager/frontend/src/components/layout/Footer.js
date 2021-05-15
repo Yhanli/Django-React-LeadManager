@@ -9,7 +9,7 @@ class Footer extends Component{
             <div className="footer">
                 <div className={'footer-container'}>
                     <div className={`footer-max`}>
-                        <a href='https://www.reddit.com/user/Yhanl' target={`_blank`}>
+                        <a href='https://www.reddit.com/user/Yhanl' target={`_blank`} >
                             <i className="fab fa-reddit fa-2x"></i>
                         </a>
                         {/*{ pageContent.linkedin ?*/}

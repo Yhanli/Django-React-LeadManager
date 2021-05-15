@@ -1,17 +1,25 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
 import {logout} from "../../actions/auth";
 
+import './layout.scss'
+
+const WAIT_INTERVAL = 1500;
+const ENTER_KEY = 13;
 
 class Header extends Component {
 
     static propTypes = {
         auth: PropTypes.object.isRequired,
-        logout: PropTypes.func.isRequired
+        logout: PropTypes.func.isRequired,
     };
+
+    logoutAction = (e) =>{
+        this.props.logout();
+    }
 
     render() {
         const {isAuthenticated,user} = this.props.auth;
@@ -22,14 +30,14 @@ class Header extends Component {
                         {user? `Welcome ${user.username}`: ""}
                     </strong>
                 </span>
-                <li className="nav-item">
-                    <button
-                        onClick={this.props.logout}
-                        className="nav-link btn btn-primary btn-sm text-light"
-                        style={{
-                            borderRadius:'10px'
-                        }}
-                    >Logout</button>
+                <li className="nav-item" >
+                        <button
+                            onClick={this.logoutAction}
+                            className="nav-link btn btn-primary btn-sm text-light"
+                            style={{
+                                borderRadius:'10px'
+                            }}
+                        >Logout</button>
                 </li>
             </ul>
         );
@@ -52,7 +60,7 @@ class Header extends Component {
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-                        <a className="navbar-brand" href="#">Subscription Manager</a>
+                        <a className="navbar-brand" href="#">{isAuthenticated ? "Subscription Manager" : "NotifyMe!"}</a>
                         {isAuthenticated ? authLinks : guestLinks}
                     </div>
                 </div>

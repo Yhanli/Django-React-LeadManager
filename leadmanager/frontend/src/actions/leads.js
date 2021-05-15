@@ -34,10 +34,10 @@ export const getSubGames = () =>(dispatch, getState) => {
 
 // DELETE LEAD
 
-export const deleteLead = id => (dispatch, getState) => {
+export const deleteLead = (id, name) => (dispatch, getState) => {
     axios.delete(`/api/leads/${id}/`, tokenConfig(getState))
         .then(res => {
-            dispatch(createMessage({deleteLead: "Game Unsubscribed"}));
+            dispatch(createMessage({deleteLead: "Unsubscribed " + name}));
             dispatch({
                 type:DELETE_LEADS,
                 payload: id
@@ -50,10 +50,10 @@ export const deleteLead = id => (dispatch, getState) => {
 
 // ADD LEAD
 
-export const addLead = (lead) => (dispatch, getState) => {
+export const addLead = (lead, name) => (dispatch, getState) => {
     axios.post('/api/leads/', lead, tokenConfig(getState))
         .then(res => {
-            dispatch(createMessage({addLead: "Game Subscribed"}));
+            dispatch(createMessage({addLead: "Subscribed to " + name}));
             dispatch({
                 type:ADD_LEADS,
                 payload: res.data

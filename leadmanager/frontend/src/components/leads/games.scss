@@ -47,3 +47,32 @@ input[type='checkbox'] {
 //  //background: #abd;
 //}
 
+
+
+.tableHeader{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  flex-wrap: wrap;
+
+  h2{
+    width: min-content;
+    white-space: nowrap;
+    margin-right: 100px;
+
+  }
+  form{
+    .emailInput{
+      width: auto;
+      padding-left: 10px;
+      border-radius: 10px;
+      border: none;
+      background-color: rgba(217, 217, 217, 0.25);
+    }
+    label{
+      margin-right: 0.5rem;
+    }
+  }
+}

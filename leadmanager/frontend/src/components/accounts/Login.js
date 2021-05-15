@@ -3,12 +3,14 @@ import {Link, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
-import {login} from '../../actions/auth'
+import {login} from '../../actions/auth';
+import './../layout/layout.scss';
 
 class Login extends Component {
     state = {
         username:"",
         password:"",
+        email:""
     };
 
     static propTypes = {
@@ -27,7 +29,7 @@ class Login extends Component {
 
     render() {
         if (this.props.isAuthenticated){
-            return <Redirect to="/" />;
+            return <Redirect to="/dashboard" />;
         }
         const {username, password} = this.state;
         return (
@@ -59,7 +61,7 @@ class Login extends Component {
                             />
                         </div>
                         <div className="form-group">
-                            <button type="submit" className="btn btn-primary">
+                            <button type="submit" className="btn btn-primary roundButton">
                                 Login
                             </button>
                         </div>

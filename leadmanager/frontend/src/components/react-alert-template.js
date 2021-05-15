@@ -79,15 +79,18 @@ var alertStyle = {
     backgroundColor: 'rgba(0, 0, 0, 0.6)',
     color: 'white',
     padding: '10px',
-    textTransform: 'uppercase',
+    // textTransform: 'uppercase',
     borderRadius: '3px',
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
     boxShadow: '0px 2px 2px 2px rgba(0, 0, 0, 0.03)',
     fontFamily: 'Arial',
-    width: '300px',
-    boxSizing: 'border-box'
+    width: 'auto',
+    maxWidth:'90vw',
+    textAlign:'center',
+    boxSizing: 'border-box',
+    // whiteSpace:"nowrap"
 };
 
 var buttonStyle = {

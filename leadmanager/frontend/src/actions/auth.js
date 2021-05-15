@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {returnErrors} from "./messages";
+import {createMessage, returnErrors} from "./messages";
 
 import {
     USER_LOADED,
@@ -9,7 +9,7 @@ import {
     LOGIN_FAIL,
     LOGOUT_SUCCESS,
     REGISTER_SUCCESS,
-    REGISTER_FAIL
+    REGISTER_FAIL, ADD_LEADS
 } from "./types";
 
 
@@ -106,6 +106,23 @@ export const logout = () => (dispatch,getState) => {
             dispatch(returnErrors(err.response.data, err.response.status));
         })
 };
+
+export const updateEmail = ({username,email}) => (dispatch, getState) => {
+
+    // Request Body
+    const body = JSON.stringify({username, email}); // same as {username:username, password:password}
+
+    axios.post('/api/auth/user', body, tokenConfig(getState))
+        .then(res => {
+            dispatch(createMessage({addLead: "Email Updated to " + email}));
+        }).catch(
+        err => dispatch(returnErrors(err.response.data,err.response.status))
+    );
+    // console.log('updating email ' + username + email)
+};
+
+
+
 
 // Setup config with token - helper function
 export const tokenConfig = getState => {

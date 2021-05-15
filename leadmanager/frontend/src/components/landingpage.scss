@@ -1,0 +1,70 @@
+*{
+  box-sizing: border-box;
+}
+
+.landing{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display:inline-block;
+  vertical-align: middle;
+
+
+  .contents{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    .main{
+      margin-bottom: 6rem;
+
+      .landingTitle {
+        height: 40px;
+        .hoverTitle {
+          transition: all 0.15s ease-in-out;
+
+          &:hover {
+            font-weight: bold;
+            color: #2aabd2;
+            padding-left: 1rem;
+            //padding-right: 1rem;
+          }
+        }
+      }
+      .button{
+        background-color: #4c6fac;
+        border: none;
+        color: white;
+        padding: 15px 72px;
+        border-radius: 10px;
+        transition: all 0.2s ease-in-out;
+
+        &:hover{
+          box-shadow: 2px 1px 2px #888888;
+          background-color: #2e518d;
+        }
+      }
+    }
+    .itemlogos{
+      .gameLogo {
+        display:inline;
+        //width: 80px;
+        padding: 10px;
+        .gameImg {
+          max-width: 70px;
+          border-radius: 10px;
+          transition: all 0.2s ease-in-out;
+          &:hover{
+            transform: scale(1.5);
+            //max-width: 100px;
+            box-shadow: 3px 3px 3px #888888;
+          }
+
+
+        }
+      }
+    }
+  }
+
+}

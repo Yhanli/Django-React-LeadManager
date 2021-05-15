@@ -2,6 +2,7 @@ from rest_framework import generics, permissions
 from rest_framework.response import Response
 from knox.models import AuthToken
 from .serializer import UserSerializer, RegisterSerializer, LoginSerializer
+from django.contrib.auth.models import User
 
 from django.contrib.auth.signals import user_logged_in
 
@@ -45,3 +46,10 @@ class UserAPI(generics.RetrieveAPIView):
 
     def get_object(self):
         return self.request.user
+
+    def post(self, request, *args, **kwargs):
+        print(request.data)
+        user = User.objects.get(username=request.data["username"])
+        user.email = request.data["email"].strip()
+        user.save()
+        return Response({"msg": f"sucessfully change email to {user.email}"})

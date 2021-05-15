@@ -47,9 +47,9 @@ class LeadViewSet(viewsets.ModelViewSet):
 
 
 class GameViewSet(viewsets.ModelViewSet):
-    permission_classes = [
-        permissions.IsAuthenticated
-    ]
+    # permission_classes = [
+    #     permissions.IsAuthenticated
+    # ]
     serializer_class = GameSerializer
 
     def list(self, request):
