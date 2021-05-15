@@ -24,7 +24,7 @@ urlpatterns = [
                   path('admin/', admin.site.urls),
                   path('admin', admin.site.urls),
                   path('', include('frontend.urls')),
-                  path('api/', include('leads.urls')),
-                  path('api/', include('accounts.urls')),
+                  path('', include('leads.urls')),
+                  path('', include('accounts.urls')),
                   re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + [url(r'^.*$', views.index)]
