@@ -39,7 +39,7 @@ class App extends Component {
         return (
             <Provider store={store}>
                 <AlertProvider template={AlertTemplate} {...alertOptions}>
-                    <Router>
+                    <BrowserRouter>
                         <Fragment>
                             <script>
                             {document.getElementById("favicon").href = favicon}
@@ -56,7 +56,7 @@ class App extends Component {
                             </div>
                             <Footer/>
                         </Fragment>
-                    </Router>
+                    </BrowserRouter>
                 </AlertProvider>
             </Provider>
         );
