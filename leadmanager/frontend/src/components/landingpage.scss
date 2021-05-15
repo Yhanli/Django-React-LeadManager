@@ -11,6 +11,7 @@
 
 
   .contents{
+    width: 90%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -20,7 +21,7 @@
       margin-bottom: 6rem;
 
       .landingTitle {
-        height: 40px;
+        height: 100px;
         .hoverTitle {
           transition: all 0.15s ease-in-out;
 
