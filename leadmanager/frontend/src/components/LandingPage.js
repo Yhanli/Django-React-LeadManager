@@ -59,7 +59,7 @@ class LandingPage extends Component {
                     <div className={`itemlogos`}>
                         {this.props.leads.map(lead => (
                             <div className={'gameLogo'} key={lead.id + lead.name}>
-                                <a href={lead.official_site}><img src={lead.logo} className={`gameImg`}/></a>
+                                <a href={lead.official_site} target="_blank"><img src={lead.logo} className={`gameImg`}/></a>
                             </div>
                         ))}
                     </div>

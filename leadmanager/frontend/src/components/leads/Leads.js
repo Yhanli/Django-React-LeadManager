@@ -133,7 +133,7 @@ class Leads extends Component {
                     {this.props.leads.map(lead => (
                         <tr key={lead.id} className={`gameRow`}>
                             <td className={'gameLogo'}>
-                                <a href={lead.official_site}><img src={lead.logo} className={`gameImg`}/></a>
+                                <a href={lead.official_site} target="_blank"><img src={lead.logo} className={`gameImg`}/></a>
                             </td>
                             <td className={'gameDescription'}>
                                 <p>{lead.descriptions}</p>
