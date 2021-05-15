@@ -4,11 +4,9 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
 import {logout} from "../../actions/auth";
+import {URL_HOME, URL_LOGIN, URL_REGISTER} from "./../routes"
 
-import './layout.scss'
-
-const WAIT_INTERVAL = 1500;
-const ENTER_KEY = 13;
+import './layout.scss';
 
 class Header extends Component {
 
@@ -44,10 +42,10 @@ class Header extends Component {
         const guestLinks = (
             <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
                 <li className="nav-item">
-                    <Link to="/register" className="nav-link">Register</Link>
+                    <Link to={URL_REGISTER} className="nav-link">Register</Link>
                 </li>
                 <li className="nav-item">
-                    <Link to="/login" className="nav-link">Login</Link>
+                    <Link to={URL_LOGIN} className="nav-link">Login</Link>
                 </li>
             </ul>
         );
@@ -60,7 +58,7 @@ class Header extends Component {
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-                        <a className="navbar-brand" href="#">{isAuthenticated ? "Subscription Manager" : "NotifyMe!"}</a>
+                        <a className="navbar-brand" href={URL_HOME}>{isAuthenticated ? "Subscription Manager" : "NotifyMe!"}</a>
                         {isAuthenticated ? authLinks : guestLinks}
                     </div>
                 </div>

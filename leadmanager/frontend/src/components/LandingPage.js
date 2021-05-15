@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 
 import './landingpage.scss';
 import {getLeads} from "../actions/leads";
+import {URL_DASHBOARD} from "./routes"
+
 
 class LandingPage extends Component {
     static propTypes = {
@@ -16,7 +18,7 @@ class LandingPage extends Component {
     }
 
     redirectRoute = () =>{
-        return <Redirect to="/dashboard" />;
+        return <Redirect to={URL_DASHBOARD} />;
     }
 
     mapChar = (str) =>{
@@ -32,7 +34,7 @@ class LandingPage extends Component {
 
     render() {
         if (this.props.isAuthenticated){
-            return <Redirect to="/dashboard" />;
+            return <Redirect to={URL_DASHBOARD} />;
         }
         return (
             <div className={'landing'}>
@@ -50,7 +52,7 @@ class LandingPage extends Component {
                         </div>
 
                         <br/>
-                        <a href='#/dashboard'><button className={`button`} onClick={this.redirectRoute}>Let's Get Started</button></a>
+                        <Link to={URL_DASHBOARD}><button className={`button`} onClick={this.redirectRoute}>Let's Get Started</button></Link>
                     </div>
 
                     <p>We have {this.props.leads.length} subscriptions available so far, Amazing!</p>

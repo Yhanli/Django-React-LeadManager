@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 
 import {login} from '../../actions/auth';
 import './../layout/layout.scss';
+import {URL_DASHBOARD, URL_REGISTER} from "./../routes"
+
 
 class Login extends Component {
     state = {
@@ -29,7 +31,7 @@ class Login extends Component {
 
     render() {
         if (this.props.isAuthenticated){
-            return <Redirect to="/dashboard" />;
+            return <Redirect to={URL_DASHBOARD} />;
         }
         const {username, password} = this.state;
         return (
@@ -66,7 +68,7 @@ class Login extends Component {
                             </button>
                         </div>
                         <p>
-                            Don't have an account? <Link to="/register">Register</Link>
+                            Don't have an account? <Link to={URL_REGISTER}>Register</Link>
                         </p>
                     </form>
                 </div>

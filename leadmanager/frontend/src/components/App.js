@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import ReactDOM from 'react-dom';
-import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch, BrowserRouter } from 'react-router-dom';
 
 import { Provider as AlertProvider} from 'react-alert';
 import AlertTemplate from "./react-alert-template";
@@ -22,6 +22,8 @@ import {loadUser} from "../actions/auth";
 
 import favicon from './favicon.png';
 
+import {URL_DASHBOARD, URL_HOME, URL_LOGIN, URL_REGISTER} from "./routes"
+
 // Alert Options
 const alertOptions = {
     timeout: 3000,
@@ -37,7 +39,7 @@ class App extends Component {
         return (
             <Provider store={store}>
                 <AlertProvider template={AlertTemplate} {...alertOptions}>
-                    <Router>
+                    <BrowserRouter>
                         <Fragment>
                             <script>
                             {document.getElementById("favicon").href = favicon}
@@ -46,15 +48,15 @@ class App extends Component {
                             <Alerts />
                             <div className = "container" >
                                 <Switch>
-                                    <Route exact path="/" component={LandingPage} />
-                                    <PrivateRoute exact path="/dashboard" component={Dashboard} />
-                                    <Route exact path="/register" component={Register} />
-                                    <Route exact path="/login" component={Login} />
+                                    <Route exact path={URL_HOME} component={LandingPage} />
+                                    <PrivateRoute exact path={URL_DASHBOARD} component={Dashboard} />
+                                    <Route exact path={URL_REGISTER} component={Register} />
+                                    <Route exact path={URL_LOGIN} component={Login} />
                                 </Switch>
                             </div>
                             <Footer/>
                         </Fragment>
-                    </Router>
+                    </BrowserRouter>
                 </AlertProvider>
             </Provider>
         );

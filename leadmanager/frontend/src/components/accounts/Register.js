@@ -6,6 +6,7 @@ import {createMessage} from "../../actions/messages";
 
 import {login, register} from '../../actions/auth';
 import './../layout/layout.scss';
+import {URL_DASHBOARD} from "../routes";
 
 class Register extends Component {
     state = {
@@ -45,7 +46,7 @@ class Register extends Component {
 
     render() {
         if (this.props.isAuthenticated){
-            return <Redirect to="/dashboard" />;
+            return <Redirect to={URL_DASHBOARD} />;
         }
         const {username, email, password, password2} = this.state;
         return (
