@@ -92,6 +92,9 @@ class Leads extends Component {
         // console.log(email);
         this.props.updateEmail({username, email})
     }
+    onSubmit = e => {
+        e.preventDefault();
+    }
 
     render() {
         const {email} = this.state;
