@@ -14,7 +14,7 @@ class LandingPage extends Component {
         isAuthenticated: PropTypes.bool
     };
     componentDidMount() {
-        this.props.getLeads();
+        this.props.getLeads({gameType:'pb'});
     }
 
     redirectRoute = () =>{

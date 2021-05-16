@@ -36,7 +36,7 @@ class Leads extends Component {
     componentDidMount() {
         this.timer = null;
 
-        this.props.getLeads();
+        this.props.getLeads({gameType:'pb', user:this.props.auth.user});
         this.props.getSubGames();
 
         for (let i=0; i<50; i++){

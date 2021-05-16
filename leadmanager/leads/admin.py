@@ -13,7 +13,7 @@ class SubscribedGamePageAdmin(admin.ModelAdmin):
 
 
 class GamePageAdmin(admin.ModelAdmin):
-    list_display = ['name', 'active', 'official_site']
+    list_display = ['name', 'active', 'official_site', 'owner']
 
 
 # admin.site.register(Lead)

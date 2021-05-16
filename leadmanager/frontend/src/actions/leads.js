@@ -6,8 +6,8 @@ import {tokenConfig} from "./auth";
 
 // GET LEADS
 
-export const getLeads = () => (dispatch, getState) => {
-    axios.get('/api/games/', tokenConfig(getState))
+export const getLeads = (config) => (dispatch, getState) => {
+    axios.get('/api/games/', {params:config}, tokenConfig(getState))
         .then(res => {
             dispatch({
                 type:GET_LEADS,
@@ -16,7 +16,7 @@ export const getLeads = () => (dispatch, getState) => {
         }).catch(
         err => dispatch(returnErrors(err.response.data,err.response.status))
     );
-    
+
 };
 
 //GET SUBED GAMES

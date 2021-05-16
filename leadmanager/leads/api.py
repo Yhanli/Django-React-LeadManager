@@ -2,6 +2,8 @@ from .models import Lead, Game, SubscribedGame
 from rest_framework import viewsets, permissions
 from .serializers import LeadSerializer, GameSerializer, SubGameSerializer
 from rest_framework.response import Response
+from django.db.models import Q
+import json
 
 
 # Lead Viewset
@@ -53,12 +55,20 @@ class GameViewSet(viewsets.ModelViewSet):
     serializer_class = GameSerializer
 
     def list(self, request):
-        queryset = Game.objects.all()
+        print(request.query_params)
+        record_type = request.query_params['gameType']
+        if 'user' in request.query_params.keys():
+            owner = json.loads(request.query_params['user'])['id']
+        else:
+            owner = None
+        queryset = Game.objects.filter(Q(record_type=record_type) | Q(owner=owner))
         serializer = GameSerializer(queryset.filter(active=True), many=True)
         if len(serializer.data) > 0:
+            print(serializer.data)
             return Response(serializer.data)
         else:
             serializer = GameSerializer(queryset, many=True)
+            print(serializer.data)
             return Response(serializer.data)
 
 
