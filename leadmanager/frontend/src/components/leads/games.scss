@@ -6,6 +6,8 @@
 .gameTable {
   //table-layout: fixed;
   width: 100%;
+  height: 100%;
+  margin-bottom: 100px;
 
   .headerRow{
     text-align: center;
@@ -75,4 +77,79 @@ input[type='checkbox'] {
       margin-right: 0.5rem;
     }
   }
+}
+
+.sub-edit-form{
+  position: fixed;
+  top: 46%;
+  left: 50%;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-50%) translateX(-50%);
+  visibility: hidden;
+  opacity: 0;
+
+  .form-bg{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1;
+  }
+
+  .form-edit{
+    padding: 1.5rem;
+    max-width: 100%;
+    min-width: 350px;
+    background-color: #f5f5f5;
+    border-radius: 5%;
+    z-index: 2;
+
+    label{
+      margin-left: 2px;
+      text-decoration: underline;
+
+    }
+    input {
+      border-radius: 5px;
+      border: 1px solid #d2d2d2;
+      width: 100%;
+      margin-bottom: 0.5rem;
+      padding-left: 0.25rem;
+
+    }
+    textarea{
+      border-radius: 5px;
+      border: 1px solid #d2d2d2;
+      width: 100%;
+      margin-bottom: 0.5rem;
+      padding-left: 0.25rem;
+    }
+    h3{
+      text-align: center;
+    }
+
+
+  }
+
+
+}
+
+.btn-form{
+  border-radius: 10px;
+  margin-right: 1rem;
+  padding: 5px 10px;
+  background-color: #0e93fd;
+  color: #FDFAF7;
+  &:hover{
+    background-color: #47aeff;
+  }
+}
+
+.modal-active{
+  visibility: visible;
+  opacity: 1;
 }

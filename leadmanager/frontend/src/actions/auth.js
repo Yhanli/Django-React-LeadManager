@@ -144,3 +144,23 @@ export const tokenConfig = getState => {
     return config
 
 };
+
+export const mediaTokenConfig = (getState) => {
+    // Get token from state
+    const token = getState().auth.token;
+
+    //Headers
+    const config = {
+        headers: {
+            'content-type': 'multipart/form-data'
+        }
+    };
+
+    //If token, add to headers config
+    if (token){
+        config.headers['Authorization'] = `Token ${token}`;
+    }
+
+    return config
+
+};

@@ -1,5 +1,7 @@
+from copy import copy
+
 from .models import Lead, Game, SubscribedGame
-from rest_framework import viewsets, permissions
+from rest_framework import viewsets, permissions, status
 from .serializers import LeadSerializer, GameSerializer, SubGameSerializer
 from rest_framework.response import Response
 from django.db.models import Q
@@ -29,7 +31,7 @@ class LeadViewSet(viewsets.ModelViewSet):
 
         subGames.subGames = string
         subGames.save()
-        return Response({"msg": "sucess"})
+        return Response({"msg": "sucess"}, status=status.HTTP_201_CREATED)
 
     # def perform_create(self, serializer):
     #     # serializer.save(owner=self.request.user)
@@ -45,7 +47,7 @@ class LeadViewSet(viewsets.ModelViewSet):
         subGames = SubscribedGame.objects.get(id=game_subed_id)
         subGames.subGames = '|'.join(game_subed)
         subGames.save()
-        return Response({"msg": "sucess"})
+        return Response({"msg": "sucess"}, status=status.HTTP_200_OK)
 
 
 class GameViewSet(viewsets.ModelViewSet):
@@ -55,7 +57,6 @@ class GameViewSet(viewsets.ModelViewSet):
     serializer_class = GameSerializer
 
     def list(self, request):
-        print(request.query_params)
         record_type = request.query_params['gameType']
         if 'user' in request.query_params.keys():
             owner = json.loads(request.query_params['user'])['id']
@@ -64,12 +65,35 @@ class GameViewSet(viewsets.ModelViewSet):
         queryset = Game.objects.filter(Q(record_type=record_type) | Q(owner=owner))
         serializer = GameSerializer(queryset.filter(active=True), many=True)
         if len(serializer.data) > 0:
-            print(serializer.data)
             return Response(serializer.data)
         else:
             serializer = GameSerializer(queryset, many=True)
-            print(serializer.data)
-            return Response(serializer.data)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+
+    def create(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return Response({"msg": "failed, need login"}, status=status.HTTP_401_UNAUTHORIZED)
+
+        req_data = copy(request.data)
+
+        if req_data['id'] == '':
+            req_data['record_type'] = 'pr'
+            req_data['active'] = True
+            req_data['owner'] = request.user.id
+            serializer = GameSerializer(data=req_data)
+        else:
+            if req_data['logo'] == '':
+                req_data.pop('logo')
+            game_obj = Game.objects.get(id=int(req_data['id']))
+            req_data['active'] = game_obj.active
+            serializer = GameSerializer(game_obj, data=req_data)
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"data": serializer.validated_data}, status=status.HTTP_200_OK)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 
 class SubGameViewSet(viewsets.ModelViewSet):
@@ -79,4 +103,4 @@ class SubGameViewSet(viewsets.ModelViewSet):
     serializer_class = SubGameSerializer
 
     def list(self, request, *args, **kwargs):
-        return Response(SubGameSerializer(self.request.user.sub_games).data)
+        return Response(SubGameSerializer(self.request.user.sub_games).data, status=status.HTTP_200_OK)
