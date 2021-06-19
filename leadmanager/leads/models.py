@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django_resized import ResizedImageField
 
 
 class Lead(models.Model):
@@ -24,12 +25,13 @@ class Game(models.Model):
     name = models.CharField(max_length=100)
     official_site = models.URLField(blank=True)
     descriptions = models.TextField(blank=True)
-    logo = models.ImageField()
+    logo = ResizedImageField(size=[500, 500], blank=True, force_format='PNG')
+    # logo = models.ImageField(blank=True)
     hash_value = models.CharField(max_length=1000, null=True, blank=True, default=None)
     last_check = models.TimeField(null=True, default=None)
-    check_frequency_hours = models.IntegerField(default=4)
+    check_frequency_hours = models.IntegerField(default=1)
 
 
 class SubscribedGame(models.Model):
     owner = models.OneToOneField(User, related_name='sub_games', on_delete=models.CASCADE, null=True)
-    subGames = models.TextField(default="")
+    subGames = models.TextField(default="", blank=True)
