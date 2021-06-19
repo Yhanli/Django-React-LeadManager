@@ -73,10 +73,13 @@ class GameViewSet(viewsets.ModelViewSet):
     def create(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
             return Response({"msg": "failed, need login"}, status=status.HTTP_401_UNAUTHORIZED)
-
         req_data = copy(request.data)
 
         if req_data['id'] == '':
+            duplicate_obj = Game.objects.filter(official_site=req_data['official_site'], owner=request.user.id)
+            if len(duplicate_obj) > 0:
+                return Response({'msg': f"there is already a notification for {req_data['official_site']}, try fresh the site"},
+                                status=status.HTTP_400_BAD_REQUEST)
             req_data['record_type'] = 'pr'
             req_data['active'] = True
             req_data['owner'] = request.user.id
@@ -87,13 +90,11 @@ class GameViewSet(viewsets.ModelViewSet):
             game_obj = Game.objects.get(id=int(req_data['id']))
             req_data['active'] = game_obj.active
             serializer = GameSerializer(game_obj, data=req_data)
-
         if serializer.is_valid():
             serializer.save()
-            return Response({"data": serializer.validated_data}, status=status.HTTP_200_OK)
+            return Response({"data": req_data}, status=status.HTTP_200_OK)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
 
 
 class SubGameViewSet(viewsets.ModelViewSet):
