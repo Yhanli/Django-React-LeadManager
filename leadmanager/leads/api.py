@@ -23,6 +23,9 @@ class LeadViewSet(viewsets.ModelViewSet):
         game_subed_id = request.user.sub_games.id
         subGames = SubscribedGame.objects.get(id=game_subed_id)
         game_subed = [int(i) for i in (subGames.subGames.replace('*', "").split('|'))[:-1]]
+        for id in game_subed:
+            if len(Game.objects.filter(pk=id)) == 0:
+                game_subed.remove(id)
         game_subed.append(game_id)
         game_subed.sort()
         string = ''
@@ -78,7 +81,7 @@ class GameViewSet(viewsets.ModelViewSet):
         if req_data['id'] == '':
             duplicate_obj = Game.objects.filter(official_site=req_data['official_site'], owner=request.user.id)
             if len(duplicate_obj) > 0:
-                return Response({'msg': f"there is already a notification for {req_data['official_site']}, try fresh the site"},
+                return Response({'msg': f"there is already a notification for {req_data['official_site']}, try refresh the site"},
                                 status=status.HTTP_400_BAD_REQUEST)
             req_data['record_type'] = 'pr'
             req_data['active'] = True
@@ -92,7 +95,11 @@ class GameViewSet(viewsets.ModelViewSet):
             serializer = GameSerializer(game_obj, data=req_data)
         if serializer.is_valid():
             serializer.save()
-            return Response({"data": req_data}, status=status.HTTP_200_OK)
+            return Response({"data": {
+                "name": req_data["name"],
+                "official_site": req_data['official_site'],
+                "descriptions": req_data['descriptions']
+            }}, status=status.HTTP_200_OK)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
