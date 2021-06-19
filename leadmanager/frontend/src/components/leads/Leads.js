@@ -139,16 +139,15 @@ class Leads extends Component {
 
     notificationSubmit = e =>{
         e.preventDefault();
-
         let form_data = new FormData();
         form_data.append('logo', this.state.editImage)
         form_data.append('name',this.state.editTitle)
         form_data.append('descriptions',this.state.editDescription)
         form_data.append('id',this.state.editId)
         form_data.append('official_site',this.state.editUrl)
-        console.log(form_data.get("id"))
         this.props.createLead(form_data)
         // window.location.reload();
+        this.hideModalAction()
     }
 
     onInputchange = e =>{

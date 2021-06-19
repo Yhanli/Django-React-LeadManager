@@ -23,7 +23,7 @@ export const getLeads = (config) => (dispatch, getState) => {
 
 export const createLead = (lead) => (dispatch, getState) => {
     let message = 'Added ' + lead.get('name')  + ' in notification'
-    if (lead.get('id') !== '') message = 'Changes has made to ' + lead.get('name')
+    if (lead.get('id') !== "") message = 'Changes has made to ' + lead.get('name')
     axios.post('/api/games/', lead, mediaTokenConfig(getState))
         .then(res => {
             dispatch(createMessage({addLead: message}));
@@ -33,7 +33,11 @@ export const createLead = (lead) => (dispatch, getState) => {
                 payload: res.data
             });
         }).catch(
-        err => dispatch(returnErrors(err.response.data,err.response.status))
+        err => {
+            message = err.response.data.msg
+            dispatch(returnErrors(err.response.data,err.response.status))
+            dispatch(createMessage({fail: message}));
+        }
     );
 
 };
