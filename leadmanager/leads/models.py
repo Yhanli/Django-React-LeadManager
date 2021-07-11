@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django_resized import ResizedImageField
+from datetime import datetime
 
 
 class Lead(models.Model):
@@ -28,7 +29,7 @@ class Game(models.Model):
     logo = ResizedImageField(size=[500, 500], blank=True, force_format='PNG')
     # logo = models.ImageField(blank=True)
     hash_value = models.CharField(max_length=1000, null=True, blank=True, default=None)
-    last_check = models.TimeField(null=True, default=None)
+    last_check = models.DateTimeField(null=True, default=datetime.utcnow)
     check_frequency_hours = models.IntegerField(default=1)
 
 
