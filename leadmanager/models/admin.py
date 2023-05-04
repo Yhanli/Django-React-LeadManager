@@ -12,6 +12,12 @@ class EpicFreeAdmin(admin.ModelAdmin):
     list_display = [field.name for field in EpicFree._meta.get_fields()]
     ordering = ['created_at']
 
+
+class GenshinPromoBotAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in GenshinPromoBot._meta.get_fields()]
+    ordering = ['created_at']
+    
 # admin.site.register(Lead)
 admin.site.register(GenshinCodes, GenshinCodesAdmin)
 admin.site.register(EpicFree, EpicFreeAdmin)
+admin.site.register(GenshinPromoBot, GenshinPromoBotAdmin)
