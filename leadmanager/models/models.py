@@ -19,6 +19,6 @@ class EpicFree(models.Model):
 
 class GenshinPromoBot(models.Model):
     server = models.CharField(max_length=254, null=False, blank=False)
-    channel = models.BooleanField(default=False)
+    channel = models.CharField(max_length=254, null=False, blank=False)
     description = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True, blank=True)
