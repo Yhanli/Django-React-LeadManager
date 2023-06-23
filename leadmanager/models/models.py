@@ -3,6 +3,7 @@ from django.db import models
 
 # Create your models here.
 
+
 class GenshinCodes(models.Model):
     line = models.CharField(max_length=254, null=False, blank=False)
     emailed = models.BooleanField(default=False)
@@ -20,5 +21,6 @@ class EpicFree(models.Model):
 class GenshinPromoBot(models.Model):
     server = models.CharField(max_length=254, null=False, blank=False)
     channel = models.CharField(max_length=254, null=False, blank=False)
+    active = models.BooleanField(default=True)
     description = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True, blank=True)
